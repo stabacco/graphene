@@ -30,26 +30,23 @@ schema = Schema(query=Query)
 
 @fixture
 def sample_datetime():
-    utc_datetime = datetime.datetime(2019, 5, 25, 5, 30, 15, 10, pytz.utc)
-    return utc_datetime
+    return datetime.datetime(2019, 5, 25, 5, 30, 15, 10, pytz.utc)
 
 
 @fixture
 def sample_time(sample_datetime):
-    time = datetime.time(
+    return datetime.time(
         sample_datetime.hour,
         sample_datetime.minute,
         sample_datetime.second,
         sample_datetime.microsecond,
         sample_datetime.tzinfo,
     )
-    return time
 
 
 @fixture
 def sample_date(sample_datetime):
-    date = sample_datetime.date()
-    return date
+    return sample_datetime.date()
 
 
 def test_datetime_query(sample_datetime):
